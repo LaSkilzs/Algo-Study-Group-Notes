@@ -1,56 +1,40 @@
 // --- Directions
-// Given an array and chunk size, divide the array into many subarrays
-// where each subarray is of length size
+// Write a function that accepts a string.  The function should
+// capitalize the first letter of each word in the string then
+// return the capitalized string.
 // --- Examples
-// chunk([1, 2, 3, 4], 2) --> [[ 1, 2], [3, 4]]
-// chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]
-// chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[ 1, 2, 3], [4, 5, 6], [7, 8]]
-// chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
-// chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
+//   capitalize('a short sentence') --> 'A Short Sentence'
+//   capitalize('a lazy fox') --> 'A Lazy Fox'
+//   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
+function capitalize(str){
 
-//Split array into amount of "size"
-//If odd number, create extra array(s) for remaining elements
-//Print out final array(s)
+    var newArray = str.split(' ');
+    var finalArray = [];
 
-
-function chunk(array, size) {
-
-    let masterArray = [];
-  
-    while(array.length){
-      masterArray.push(array.splice(0, size)); 
+    for(let word of newArray){
+        word = word.split('');
+        word[0] = word[0].toUpperCase();
+        word = word.join('');
+        finalArray.push(word);
     }
-  
-      console.log(masterArray);
-  }
-  
-  // function chunk(array, size){
-  //   let newArray = [];
-  
-  //   if(array.length - 1 % size == 0){
-  //     console.log(array.splice(0, size));
-  //   }
-  // }
-  
-  
-  
-  chunk([1,2,3,4], 2);
-  module.exports = chunk;
-  
-  // function chunk(array, size) {
-  //   const chunked = [];
-  //
-  //   for (let element of array) {
-  //     const last = chunked[chunked.length - 1];
-  //
-  //     if (!last || last.length === size) {
-  //       chunked.push([element]);
-  //     } else {
-  //       last.push(element);
-  //     }
-  //   }
-  //
-  //   return chunked;
-  // }
-  
+
+    console.log(finalArray.join(' '));
+   
+ }
+
+ capitalize('a short sentence')
+
+
+// function capitalize(str) {
+
+//     var stringArray = str.split();
+
+//     for(var i = 0; i <= stringArray.length - 1; i++){
+
+//         console.log(string[i].charAt(0).toUpperCase());
+//     }
+
+// }
+
+module.exports = capitalize;
